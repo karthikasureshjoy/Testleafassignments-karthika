@@ -1,0 +1,45 @@
+package week1.day1;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Editlead {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		ChromeDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		driver.get("http://leaftaps.com/opentaps/control/main");
+		driver.findElement(By.id("username")).sendKeys("DemoSalesManager");
+		driver.findElement(By.id("password")).sendKeys("crmsfa");
+		driver.findElement(By.className("decorativeSubmit")).click();
+		driver.findElement(By.linkText("CRM/SFA")).click();
+		driver.findElement(By.linkText("Leads")).click();
+		driver.findElement(By.linkText("Create Lead")).click();
+		driver.findElement(By.xpath("(//input[@name='companyName'])[2]")).sendKeys("TestLeaf");
+		driver.findElement(By.xpath("(//input[@name='firstName'])[3]")).sendKeys("Karthika");
+		driver.findElement(By.xpath("(//input[@name='lastName'])[3]")).sendKeys("suresh");
+		driver.findElement(By.xpath("//input[@name='firstNameLocal']")).sendKeys("karthu");
+		driver.findElement(By.xpath("//input[@name='departmentName']")).sendKeys("IT");
+		driver.findElement(By.xpath("//input[@id='createLeadForm_primaryEmail']")).sendKeys("abc@gmail.com");
+		WebElement db = driver.findElement(By.xpath("//select[@id='createLeadForm_generalStateProvinceGeoId']"));
+		Select options=new Select(db);
+		options.selectByVisibleText("Indiana");
+		driver.findElement(By.xpath("//input[@name='submitButton']")).click();
+
+driver.findElement(By.linkText("Edit")).click();
+driver.findElement(By.id("updateLeadForm_description")).clear();
+driver.findElement(By.id("updateLeadForm_importantNote")).sendKeys("learn");
+driver.findElement(By.xpath("//input[@value='Update']")).click();
+String title = driver.getTitle();
+System.out.println("the title of the page is" +title);
+	driver.close();
+	}
+
+}
