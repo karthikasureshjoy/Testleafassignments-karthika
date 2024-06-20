@@ -1,0 +1,17 @@
+package week1.day1;
+
+public class TestData {
+
+	public void enterCredentials()
+	{
+		System.out.println("please enter the credentials here : this is from the superclass");
+	}
+	
+	public void navigateToHomePage()
+	{
+		System.out.println("the page is navigated to homepage");
+	}
+	
+	}
+
+

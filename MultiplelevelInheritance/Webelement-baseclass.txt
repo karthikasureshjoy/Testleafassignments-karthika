@@ -1,0 +1,12 @@
+package week1.day1;
+
+public class WebElement {
+public void click()
+{
+	System.out.println("click option is pressed");
+}
+public String setText(String s)
+{
+	return s;
+}
+}
